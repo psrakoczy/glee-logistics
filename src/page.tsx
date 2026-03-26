@@ -236,6 +236,7 @@ export default function Home() {
           <li><a href="#partners">{t.nav.partners}</a></li>
           <li><a href="#contact">{t.nav.contact}</a></li>
           <li><a href="/careers">{t.nav.careers}</a></li>
+          <li><a href="/dna">{t.nav.dna}</a></li>
         </ul>
         <div className="nav-right">
           <div className="lang-toggle">
@@ -401,6 +402,7 @@ export default function Home() {
           <a href="/impressum" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Impressum</a>
           <a href="/datenschutz" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Datenschutz</a>
           <a href="/careers" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.careers}</a>
+          <a href="/dna" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.dna}</a>
           <span>© {new Date().getFullYear()} GLEE Logistics GmbH. {t.footer.copy}</span>
         </div>
       </footer>
