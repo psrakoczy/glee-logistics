@@ -410,3 +410,68 @@ export default function Home() {
             <div key={p} style={{ background: "#fff", padding: "1.75rem 2rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
               <div style={{ width: "6px", height: "6px", background: "#1a1a1a", borderRadius: "50%", flexShrink: 0 }} />
               <span style={{ fontSize: "0.85rem", fontWeight: 500, color: "#333", letterSpacing: "0.01em", lineHeight: 1.4, fontFamily: "'Inter', sans-serif" }}>{p}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="contact-section" id="contact">
+        <div className="contact-left">
+          <div className="section-label">{t.contact.label}</div>
+          <h2 className="section-title">{t.contact.title1}<br /><em>{t.contact.title2}</em></h2>
+          <p style={{ marginTop: "1.5rem", fontSize: "0.95rem", color: "#666", lineHeight: "1.8", fontWeight: 300, fontFamily: "'Inter', sans-serif" }}>
+            {t.contact.sub}
+          </p>
+          <div style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            <div style={{ fontSize: "0.875rem", color: "#888", fontFamily: "'Inter', sans-serif" }}>{t.contact.location}</div>
+            <div style={{ fontSize: "0.875rem", color: "#888", fontFamily: "'Inter', sans-serif" }}>info@gleelogistics.de</div>
+          </div>
+        </div>
+        <div className="contact-right">
+          <div className="contact-form">
+            <input className="form-input" type="text" placeholder={t.contact.namePlaceholder} />
+            <input className="form-input" type="email" placeholder={t.contact.emailPlaceholder} />
+            <input className="form-input" type="text" placeholder={t.contact.companyPlaceholder} />
+            <textarea className="form-input" placeholder={t.contact.messagePlaceholder} rows={4} style={{ resize: "vertical" }} />
+            <button className="btn-primary" style={{ alignSelf: "flex-start", marginTop: "0.5rem" }}>
+              {t.contact.send}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer>
+        <div className="footer-logo">GLEE Logistics GmbH</div>
+        <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+          <a href="/impressum" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Impressum</a>
+          <a href="/datenschutz" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Datenschutz</a>
+          <a href="/careers" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.careers}</a>
+          <a href="/dna" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.dna}</a>
+          <span>© {new Date().getFullYear()} GLEE Logistics GmbH. {t.footer.copy}</span>
+        </div>
+      </footer>
+      {/* Cookie Banner */}
+      {cookieVisible && (
+        <div className="cookie-banner">
+          <div className="cookie-title">{lang === "de" ? "Cookies" : "Cookies"}</div>
+          <p className="cookie-text">
+            {lang === "de"
+              ? <>Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Mehr Infos in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</>
+              : <>We use cookies to improve your experience. Learn more in our <a href="/datenschutz">Privacy Policy</a>.</>
+            }
+          </p>
+          <div className="cookie-btns">
+            <button className="cookie-accept" onClick={() => { localStorage.setItem("cookie-consent", "accepted"); setCookieVisible(false); }}>
+              {lang === "de" ? "Akzeptieren" : "Accept"}
+            </button>
+            <button className="cookie-decline" onClick={() => { localStorage.setItem("cookie-consent", "declined"); setCookieVisible(false); }}>
+              {lang === "de" ? "Ablehnen" : "Decline"}
+            </button>
+          </div>
+        </div>
+      )}
+    </main>
+  );
+}
