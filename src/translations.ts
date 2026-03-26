@@ -7,6 +7,7 @@ export const translations = {
       partners: "Partner",
       contact: "Kontakt",
       careers: "Karriere",
+      dna: "DNA",
       cta: "Kontakt aufnehmen",
     },
     hero: {
@@ -139,6 +140,7 @@ export const translations = {
       partners: "Partners",
       contact: "Contact",
       careers: "Careers",
+      dna: "DNA",
       cta: "Get in Touch",
     },
     hero: {
