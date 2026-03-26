@@ -377,6 +377,7 @@ export default function Home() {
           <li><a href="#history">History</a></li>
           <li><a href="#partners">Partners</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="/careers">Careers</a></li>
         </ul>
         <button className="nav-cta" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
           Get in Touch
