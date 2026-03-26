@@ -155,11 +155,16 @@ export default function Careers() {
       </section>
 
       <footer>
-        <div className="footer-logo">GLEE Logistics GmbH</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+          <div className="footer-logo">GLEE Logistics GmbH</div>
+          <div style={{ fontSize: "0.78rem", color: "#555", fontFamily: "'Inter', sans-serif" }}>Schloßstraße 110, 12163 Berlin</div>
+          <a href="mailto:info@gleelogistics.de" style={{ fontSize: "0.78rem", color: "#555", textDecoration: "none", fontFamily: "'Inter', sans-serif" }}>info@gleelogistics.de</a>
+        </div>
         <div className="footer-right">
           <a href="/impressum">Impressum</a>
           <a href="/datenschutz">Datenschutz</a>
           <a href="/careers">{t.nav.careers}</a>
+          <a href="/dna">{t.nav.dna}</a>
           <span className="footer-copy">© {new Date().getFullYear()} GLEE Logistics GmbH. {t.footer.copy}</span>
         </div>
       </footer>
