@@ -261,6 +261,7 @@ export default function Home() {
           { key: "partners", href: "#partners" },
           { key: "contact", href: "#contact" },
           { key: "careers", href: "/careers" },
+          { key: "dna", href: "/dna" },
         ].map((item) => (
           <a key={item.key} href={item.href} onClick={() => setMenuOpen(false)}>
             {t.nav[item.key as keyof typeof t.nav]}
