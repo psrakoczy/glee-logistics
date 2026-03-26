@@ -443,13 +443,21 @@ export default function Home() {
 
       {/* Footer */}
       <footer>
-        <div className="footer-logo">GLEE Logistics GmbH</div>
-        <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+          <div className="footer-logo">GLEE Logistics GmbH</div>
+          <div style={{ fontSize: "0.78rem", color: "#555", fontFamily: "'Inter', sans-serif", lineHeight: 1.6 }}>
+            Schloßstraße 110, 12163 Berlin
+          </div>
+          <a href="mailto:info@gleelogistics.de" style={{ fontSize: "0.78rem", color: "#555", textDecoration: "none", fontFamily: "'Inter', sans-serif" }}>
+            info@gleelogistics.de
+          </a>
+        </div>
+        <div style={{ display: "flex", gap: "2rem", alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
           <a href="/impressum" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Impressum</a>
           <a href="/datenschutz" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Datenschutz</a>
           <a href="/careers" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.careers}</a>
           <a href="/dna" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.dna}</a>
-          <span>© {new Date().getFullYear()} GLEE Logistics GmbH. {t.footer.copy}</span>
+          <span style={{ fontSize: "0.8rem", color: "#555" }}>© {new Date().getFullYear()} GLEE Logistics GmbH. {t.footer.copy}</span>
         </div>
       </footer>
       {/* Cookie Banner */}
