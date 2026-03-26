@@ -20,11 +20,14 @@ function detectLang(): Lang {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cookieVisible, setCookieVisible] = useState(false);
   const [lang, setLang] = useState<Lang>("de");
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setLang(detectLang());
+    const accepted = localStorage.getItem("cookie-consent");
+    if (!accepted) setCookieVisible(true);
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -208,6 +211,48 @@ export default function Home() {
           footer > div { flex-direction: column; gap: 0.75rem; }
         }
         /* ── Mobile (≤480px) ── */
+
+        /* Cookie Banner */
+        .cookie-banner {
+          position: fixed; bottom: 2rem; left: 2rem; z-index: 999;
+          background: #1a1a1a; color: #fff;
+          padding: 1.5rem; max-width: 320px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        }
+        .cookie-title {
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 700; font-size: 1.1rem;
+          text-transform: uppercase; letter-spacing: 0.04em;
+          margin-bottom: 0.6rem; color: #fff;
+        }
+        .cookie-text {
+          font-size: 0.75rem; color: #aaa;
+          line-height: 1.6; font-weight: 300;
+          font-family: 'Inter', sans-serif;
+          margin-bottom: 1.25rem;
+        }
+        .cookie-text a { color: #888; }
+        .cookie-text a:hover { color: #fff; }
+        .cookie-btns { display: flex; gap: 0.5rem; }
+        .cookie-accept {
+          background: #fff; color: #1a1a1a; border: none;
+          padding: 0.5rem 1.1rem; font-size: 0.75rem;
+          font-family: 'Inter', sans-serif; font-weight: 500;
+          cursor: pointer; letter-spacing: 0.04em; flex: 1;
+          transition: background 0.2s;
+        }
+        .cookie-accept:hover { background: #e0e0de; }
+        .cookie-decline {
+          background: transparent; color: #666; border: 1px solid #444;
+          padding: 0.5rem 1.1rem; font-size: 0.75rem;
+          font-family: 'Inter', sans-serif; font-weight: 400;
+          cursor: pointer; letter-spacing: 0.04em; flex: 1;
+          transition: all 0.2s;
+        }
+        .cookie-decline:hover { border-color: #888; color: #aaa; }
+        @media (max-width: 480px) {
+          .cookie-banner { left: 1rem; right: 1rem; bottom: 1rem; max-width: 100%; }
+        }
         @media (max-width: 480px) {
           .nav-logo { font-size: 1.2rem; }
           .nav-cta { display: none; }
@@ -365,48 +410,3 @@ export default function Home() {
             <div key={p} style={{ background: "#fff", padding: "1.75rem 2rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
               <div style={{ width: "6px", height: "6px", background: "#1a1a1a", borderRadius: "50%", flexShrink: 0 }} />
               <span style={{ fontSize: "0.85rem", fontWeight: 500, color: "#333", letterSpacing: "0.01em", lineHeight: 1.4, fontFamily: "'Inter', sans-serif" }}>{p}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section className="contact-section" id="contact">
-        <div className="contact-left">
-          <div className="section-label">{t.contact.label}</div>
-          <h2 className="section-title">{t.contact.title1}<br /><em>{t.contact.title2}</em></h2>
-          <p style={{ marginTop: "1.5rem", fontSize: "0.95rem", color: "#666", lineHeight: "1.8", fontWeight: 300, fontFamily: "'Inter', sans-serif" }}>
-            {t.contact.sub}
-          </p>
-          <div style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-            <div style={{ fontSize: "0.875rem", color: "#888", fontFamily: "'Inter', sans-serif" }}>{t.contact.location}</div>
-            <div style={{ fontSize: "0.875rem", color: "#888", fontFamily: "'Inter', sans-serif" }}>info@gleelogistics.de</div>
-          </div>
-        </div>
-        <div className="contact-right">
-          <div className="contact-form">
-            <input className="form-input" type="text" placeholder={t.contact.namePlaceholder} />
-            <input className="form-input" type="email" placeholder={t.contact.emailPlaceholder} />
-            <input className="form-input" type="text" placeholder={t.contact.companyPlaceholder} />
-            <textarea className="form-input" placeholder={t.contact.messagePlaceholder} rows={4} style={{ resize: "vertical" }} />
-            <button className="btn-primary" style={{ alignSelf: "flex-start", marginTop: "0.5rem" }}>
-              {t.contact.send}
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer>
-        <div className="footer-logo">GLEE Logistics GmbH</div>
-        <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-          <a href="/impressum" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Impressum</a>
-          <a href="/datenschutz" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>Datenschutz</a>
-          <a href="/careers" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.careers}</a>
-          <a href="/dna" style={{ fontSize: "0.8rem", color: "#666", textDecoration: "none", letterSpacing: "0.02em" }}>{t.nav.dna}</a>
-          <span>© {new Date().getFullYear()} GLEE Logistics GmbH. {t.footer.copy}</span>
-        </div>
-      </footer>
-    </main>
-  );
-}
