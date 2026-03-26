@@ -7,7 +7,6 @@ export const translations = {
       partners: "Partner",
       contact: "Kontakt",
       careers: "Karriere",
-      dna: "DNA",
       cta: "Kontakt aufnehmen",
     },
     hero: {
@@ -26,8 +25,8 @@ export const translations = {
     ],
     services: {
       label: "Was wir tun",
-      title1: "Sechs Wege, wie wir",
-      title2: "Ihnen dienen",
+      title1: "So unterstützen",
+      title2: "wir Sie",
       items: [
         { icon: "01", title: "Last-Mile-Lieferung", desc: "Zuverlässige, nachverfolgbare Lieferung an Ihre Kunden — Next-Day-Lieferung garantiert." },
         { icon: "02", title: "Transport", desc: "Voll- und Teilladungstransporte in ganz Deutschland und Europa." },
@@ -140,7 +139,6 @@ export const translations = {
       partners: "Partners",
       contact: "Contact",
       careers: "Careers",
-      dna: "DNA",
       cta: "Get in Touch",
     },
     hero: {
